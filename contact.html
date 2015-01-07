@@ -17,6 +17,12 @@
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
+		<script src="js/githubissues.js"></script>
+		<script>
+		(function () {
+			githubissues("mdg-ios/iOS-App-Bugs","github");
+		})();
+		</script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -51,17 +57,17 @@
 					<p>Hilf' uns die App noch besser zu machen.</p>
 				</header>
 				<div class="box">
-					<div align="center">Hierfür nutzen wir jetzt GitHub. Details findet ihr <a href="https://github.com/MDG-iOS/iOS-App-Bugs">hier</a>.</div>
+					<div id="github"></div>
 				</div>
 			</section>
 			
 		<!-- Footer -->
 			<footer id="footer">
-				<!--<ul class="icons">
-					li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				<ul class="icons">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 					<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-				</ul>-->
+				</ul>
 				<ul class="copyright">
 					<li>&copy; Yannik Ehlert. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 				</ul>
