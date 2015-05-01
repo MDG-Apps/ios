@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<!--
+	Alpha by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Gerätecheck - MDG Nienburg iPhone App</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.min.js"></script>
+		<script src="js/jquery.scrollgress.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-layers.min.js"></script>
+		<script src="js/init.js"></script>
+		<script>
+		var agent = navigator.userAgent.toLowerCase();
+		var validate = {
+			Android: function() {
+				return /android/i.test(agent);
+			},
+			iOS7: function() {
+				return /(iphone|ipod|ipad).* os 7_/.test(agent);
+			},
+			iOS8: function() {
+				return /(iphone|ipod|ipad).* os 8_/.test(agent);
+			},
+			iPhone4: function() {
+				return window.screen.height == (960 / 2);
+			},
+			any: function() {
+				return (validate.Android() || isMobile.BlackBerry() || validate.iOS() || isMobile.Windows());
+			}
+		};
+		$(function () {
+			$('#jsdisabled').hide();
+			if (validate.iPhone4() && (validate.iOS7()||validate.iOS8())) {
+				$('#iphone4').fadeIn();
+			} else if (validate.iOS7()) {
+				$('#ios7').fadeIn();
+			} else if (validate.Android()) {
+				$('#android').fadeIn();
+			} else if (validate.iOS8()) {
+				$('#supported').fadeIn();
+			} else {
+				$('#notsupported').fadeIn();
+			}
+		});
+		</script>
+		<noscript>
+			<style>
+			#result {
+			    padding: 5px 10px;
+			    display: inline-block;
+			    -moz-border-radius: 100px;
+			    -webkit-border-radius: 100px;
+			    border-radius: 100px;
+			    background-color: #000000;
+			    -moz-box-shadow: 0px 0px 2px #888;
+			    -webkit-box-shadow: 0px 0px 2px #888;
+			    box-shadow: 0px 0px 2px #888;
+			}
+			</style>
+			<link rel="stylesheet" href="css/skel.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-wide.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<h1><a href="javascript:void(0)">MDG Nienburg</a> für iPhone</h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="index.html">Startseite</a></li>
+						<li>
+							<a href="" class="icon fa-angle-down">Entwicklung</a>
+							<ul>
+								<li><a href="team.html">Team</a></li>
+								<li><a href="check.html">Gerätecheck</a></li>
+								<li><a href="contact.html">Funktionswunsch / Bugs</a></li>
+							</ul>
+						</li>
+						<li><a href="download.html" class="button">Download</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="container small">
+				<header>
+					<h2>Gerätecheck</h2>
+					<p>Wird die App von deinem Handy unterstützt?</p>
+				</header>
+				<div class="box">
+					<div align="center" id="supported" style="display:none;">
+						<span class="fa-stack fa-lg fa-3x">
+						  <i style="color:green" class="fa fa-circle fa-stack-2x"></i>
+						  <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Dein Gerät wird unterstützt!</h3>
+						Einer Installation steht (fast) nichts mehr im Wege. Gucke bald mal wieder vorbei!
+					</div>
+					<div align="center" id="android" style="display:none;">
+						<span class="fa-stack fa-lg fa-3x">
+						  <i style="color:orange" class="fa fa-circle fa-stack-2x"></i>
+						  <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Du nutzt ein Android-Gerät</h3>
+						Leider ist diese Version für dein Handy nicht verfügbar. Bitte erlaube uns aber, dich <a target="_blank" href="https://play.google.com/store/apps/details?id=de.t03rk3.mdgnienburgapp">auf diese Seite zu verweisen</a>.
+					</div>
+					<div align="center" id="iphone4" style="display:none;">
+						<span class="fa-stack fa-lg fa-3x">
+						  <i style="color:orange" class="fa fa-circle fa-stack-2x"></i>
+						  <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Dein Gerät wird eingeschränkt unterstützt</h3>
+						Eventuell sind nicht alle Funktionen der App auf deinem Handy verfügbar.
+					</div>
+					<div align="center" id="ios7" style="display:none;">
+						<span class="fa-stack fa-lg fa-3x">
+						  <i style="color:orange" class="fa fa-circle fa-stack-2x"></i>
+						  <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Dein Gerät wird eingeschränkt unterstützt</h3>
+						Hier und da ist die App wahrscheinlich nicht so stabil. Falls die Möglichkeit besteht, aktualisiere bitte die Software auf deinem Handy.<br><br> Weitere Informationen zu iOS 8 findest du <a target="_blank" href="http://www.apple.com/de/ios/">hier</a>.
+					</div>
+					<div align="center" id="jsdisabled">
+						<span class="fa-stack fa-lg fa-3x">
+						  <i style="color:orange" class="fa fa-circle fa-stack-2x"></i>
+						  <i class="fa fa-question fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>JavaScript deaktiviert</h3>
+						Auf deinem Gerät ist JavaScript deaktiviert, welches für diesen Test benötigt wird. Um den Test dennoch durchzuführen, aktiviere es bitte und lade die Seite neu.
+					</div>
+					<div align="center" id="notsupported" style="display:none;">
+						<span class="fa-stack fa-lg fa-3x">
+						  <i style="color:red" class="fa fa-circle fa-stack-2x"></i>
+						  <i class="fa fa-close fa-stack-1x fa-inverse"></i>
+						</span>
+						<h3>Nicht unterstützt</h3>
+						Die App wird von diesem Gerät nicht unterstützt. Sollte es sich bei diesem Gerät um ein anderes als dein Handy handeln, öffne die Seite bitte auf deinem Telefon um ein Testresultat zu bekommen.
+					</div>
+				</div>
+			</section>
+			
+		<!-- Footer -->
+			<footer id="footer">
+				<!--ul class="icons">
+					<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+				</ul-->
+				<ul class="copyright">
+					<li>&copy; Yannik Ehlert. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
+
+	</body
