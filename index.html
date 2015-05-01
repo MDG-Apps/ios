@@ -17,6 +17,19 @@
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
+		<script>
+		function selectcolor(color) {
+			if (color == "black") {
+				$('#iphoneswhite').fadeOut("fast",function() {
+					$('#iphonesblack').fadeIn("fast");
+				});
+			} else {
+				$('#iphonesblack').fadeOut("fast",function() {
+					$('#iphoneswhite').fadeIn("fast");
+				});
+			}
+		}
+		</script>
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
@@ -67,7 +80,11 @@
 						<p>Ohne tägliches, lästiges Navigieren durch Website und Eingeben von<br />
 						Zugangsdaten schnell zu den Informationen, auf die es ankommt.</p>
 					</header>
-					<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+					<span class="image featured"><img src="images/iPhones_white.jpg" id="iphoneswhite" alt="" /><img src="images/iPhones_black.jpg" style="display:none;" id="iphonesblack" alt="" /></span>
+							<div id="selectmodel">
+								<!--a style="background-color:grey;color:#fff" type="button" href="#" class="button">Grau</a> &nbsp;&nbsp;<a style="background-color:lightgrey;color:#000" type="button" href="#" class="button">Silber</a> &nbsp;&nbsp;<a style="background-color:gold;color:#000" type="button" href="#" class="button">Gold</a-->
+									<a href="javascript:void(0)" onclick="selectcolor('black')" style="color:grey;" class="fa fa-circle fa-2x"></a>&nbsp;&nbsp;<a href="javascript:void(0)" onclick="selectcolor('white')" class="fa fa-circle fa-2x" style="color:silver;"></a>
+							</div>
 				</section>
 						
 				<section class="box special features">
@@ -98,9 +115,9 @@
 					<div class="6u">
 
 						<section class="box special">
-							<span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
+							<span class="image featured"><img src="images/watch.jpg" alt="" /></span>
 							<h3>Wo findet nochmal die nächste Stunde statt?</h3>
-							<p>Warum nicht den Stundenplan da anzeigen, wo man sowieso hinguckt? Der heutige Stundenplan, inklusive Vertretungsunterricht, ist mit der App und Benachrichtigungszentrale jederzeit zu erreichen.</p>
+							<p>Warum nicht den Stundenplan da anzeigen, wo man sowieso hinguckt? Die wichtigsten Informationen zur aktuellen Stunde direkt auf deiner Uhr, sowie in der App und deiner Benachrichtigungszentrale.</p>
 						</section>
 
 					</div>
