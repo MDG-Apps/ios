@@ -19,32 +19,37 @@
 		<script src="js/init.js"></script>
 		<script>
 		var agent = navigator.userAgent.toLowerCase();
+		function iOSversion() {
+		  if (/iP(hone|od|ad)/.test(navigator.platform)) {
+		    // supports iOS 2.0 and later: <http://bit.ly/TJjs1V>
+		    var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
+		    return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+		  }
+		}
+		var ver = iOSversion();
 		var validate = {
 			Android: function() {
 				return /android/i.test(agent);
 			},
-			iOS7: function() {
-				return /(iphone|ipod|ipad).* os 7_/.test(agent);
+			iOS: function(version) {
+				return ver[0] == version;
 			},
-			iOS8: function() {
-				return /(iphone|ipod|ipad).* os 8_/.test(agent);
+			later: function(version) {
+				return ver[0] >= version;
 			},
 			iPhone4: function() {
 				return window.screen.height == (960 / 2);
-			},
-			any: function() {
-				return (validate.Android() || isMobile.BlackBerry() || validate.iOS() || isMobile.Windows());
 			}
 		};
 		$(function () {
 			$('#jsdisabled').hide();
-			if (validate.iPhone4() && (validate.iOS7()||validate.iOS8())) {
+			if (validate.iPhone4() && validate.later(7)) {
 				$('#iphone4').fadeIn();
-			} else if (validate.iOS7()) {
+			} else if (validate.iOS(7)) {
 				$('#ios7').fadeIn();
 			} else if (validate.Android()) {
 				$('#android').fadeIn();
-			} else if (validate.iOS8()) {
+			} else if (validate.later(8)) {
 				$('#supported').fadeIn();
 			} else {
 				$('#notsupported').fadeIn();
