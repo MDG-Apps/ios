@@ -25,6 +25,7 @@
 		    var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/);
 		    return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
 		  }
+		  return false;
 		}
 		var ver = iOSversion();
 		var validate = {
@@ -32,9 +33,15 @@
 				return /android/i.test(agent);
 			},
 			iOS: function(version) {
+				if (typeof ver === "boolean") {
+					return false;
+				}
 				return ver[0] == version;
 			},
 			later: function(version) {
+				if (typeof ver === "boolean") {
+					return false;
+				}
 				return ver[0] >= version;
 			},
 			iPhone4: function() {
